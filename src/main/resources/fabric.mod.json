@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "nixium",
+  "version": "${version}",
+  "name": "nixium",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/linux-pop_os-machine/nixium"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/nixium/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.github.anopensaucedev.nixium.client.NixiumClient"
+    ],
+    "main": [
+      "com.github.anopensaucedev.nixium.Nixium"
+    ]
+  },
+  "mixins": [
+    "nixium.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
