@@ -1,8 +1,8 @@
-package com.github.anopensaucedev.nixium.client;
+package com.github.anopensaucedev.fastmath.client;
 
 import net.fabricmc.api.ClientModInitializer;
 
-public class NixiumClient implements ClientModInitializer {
+public class Client implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 

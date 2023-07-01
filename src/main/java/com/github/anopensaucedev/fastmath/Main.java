@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.nixium;
+package com.github.anopensaucedev.fastmath;
 
 
 ;
@@ -8,16 +8,15 @@ import org.slf4j.LoggerFactory;
 
 
 
-public class Nixium implements ModInitializer {
+public class Main implements ModInitializer {
 
-    public static boolean LightProcess = false;
+    //public static boolean LightProcess = false;
 
-    public static final String NIXIUM_MOD_ID = "nixium";
+    //public static final String NIXIUM_MOD_ID = "nixium"; //(ignore, using this in a different mod)
 
-    public static Logger NixiumMainLogger = LoggerFactory.getLogger(NIXIUM_MOD_ID);
+    //public static Logger NixiumMainLogger = LoggerFactory.getLogger(NIXIUM_MOD_ID); //ditto.
 
     @Override
     public void onInitialize() {
-        NixiumMainLogger.info("Nixium has loaded, pay warning that this mod may cause instability.");
     }
 }

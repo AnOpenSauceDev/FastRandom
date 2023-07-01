@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "nixium",
+  "id": "fastrandom",
   "version": "${version}",
-  "name": "nixium",
+  "name": "fastrandom",
   "description": "",
   "authors": [],
   "contact": {
@@ -13,10 +13,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.github.anopensaucedev.nixium.client.NixiumClient"
+      "com.github.anopensaucedev.fastmath.client.Client"
     ],
     "main": [
-      "com.github.anopensaucedev.nixium.Nixium"
+      "com.github.anopensaucedev.fastmath.Main"
     ]
   },
   "mixins": [
@@ -25,6 +25,6 @@
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "*"
   }
 }
