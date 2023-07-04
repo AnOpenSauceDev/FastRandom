@@ -12,9 +12,6 @@
   "icon": "assets/nixium/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "com.github.anopensaucedev.fastmath.client.Client"
-    ],
     "main": [
       "com.github.anopensaucedev.fastmath.Main"
     ]
