@@ -3,6 +3,7 @@ package com.github.anopensaucedev.fastmath;
 
 ;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,13 +11,13 @@ import org.slf4j.LoggerFactory;
 
 public class Main implements ModInitializer {
 
-    //public static boolean LightProcess = false;
 
-    //public static final String NIXIUM_MOD_ID = "nixium"; //(ignore, using this in a different mod)
+    public static final String MOD_ID = "fastrandom";
 
-    //public static Logger NixiumMainLogger = LoggerFactory.getLogger(NIXIUM_MOD_ID); //ditto.
+    public static Logger MainLogger = LoggerFactory.getLogger(MOD_ID);
 
     @Override
     public void onInitialize() {
+        MainLogger.info("FastRandom has loaded!");
     }
 }

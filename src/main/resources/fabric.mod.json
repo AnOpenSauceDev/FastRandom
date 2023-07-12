@@ -17,7 +17,7 @@
     ]
   },
   "mixins": [
-    "nixium.mixins.json"
+    "fastrandom.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
