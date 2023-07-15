@@ -2,4 +2,5 @@
 Source Code and issues for [Fast Random](https://modrinth.com/mod/faster-random)
 
 
-the code here is a mess, and probably isn't the best example to learn from.
+Currently on a low-maintenance development cycle, won't be updating it actively. <br>
+PR's are fine, but i don't think that there is anything that needs chaning here.
