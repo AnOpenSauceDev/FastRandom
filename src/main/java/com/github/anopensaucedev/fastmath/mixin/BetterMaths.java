@@ -14,6 +14,9 @@ import java.util.UUID;
 @Mixin(MathHelper.class)
 public class BetterMaths {
 
+
+
+
     @Shadow
     private static final float[] SINE_TABLE = Util.make(new float[65536], sineTable -> {
         for (int i = 0; i < (sineTable).length; ++i) {

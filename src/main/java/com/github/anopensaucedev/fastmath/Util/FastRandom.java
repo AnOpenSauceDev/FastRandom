@@ -1,5 +1,6 @@
 package com.github.anopensaucedev.fastmath.Util;
 
+import com.github.anopensaucedev.fastmath.mixin.BetterMaths;
 import net.minecraft.util.math.random.Random;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -7,6 +8,10 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class FastRandom {
+
+
+    public static final ThreadLocalRandom sharedRandom = ThreadLocalRandom.current();
+
 
     //uses ThreadLocalRandom for much better random speed
     public static double FastRandomDouble(){
