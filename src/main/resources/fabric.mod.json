@@ -4,12 +4,12 @@
   "version": "${version}",
   "name": "fastrandom",
   "description": "",
-  "authors": [],
+  "authors": ["AnOpenSauceDev"],
   "contact": {
-    "repo": ""
+    "repo": "https://github.com/AnOpenSauceDev/FastRandom"
   },
   "license": "GPL-3.0",
-  "icon": "assets/nixium/icon.png",
+  "icon": "assets/fastrandom/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
