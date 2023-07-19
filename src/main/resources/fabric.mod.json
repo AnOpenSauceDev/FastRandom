@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "fastrandom",
   "version": "${version}",
-  "name": "fastrandom",
+  "name": "Faster Random",
   "description": "",
   "authors": ["AnOpenSauceDev"],
   "contact": {
