@@ -8,6 +8,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.*;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
+
+
 
     @Shadow public abstract void playSound(SoundEvent sound, float volume, float pitch);
 
@@ -26,6 +29,10 @@ public abstract class EntityMixin {
     @Shadow private int lastChimeAge;
 
     @Shadow public int age;
+
+
+    @Shadow @Final protected Random random = null; // null out
+
 
     @Redirect(method = "setOnFireFromLava",at= @At(value = "INVOKE",target = "Lnet/minecraft/util/math/random/Random;nextFloat()F"))
     public float random1(Random instance){
