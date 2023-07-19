@@ -30,7 +30,9 @@ public abstract class EntityMixin {
 
     @Shadow public int age;
 
+
     @Shadow @Final protected Random random = null; // null out
+
 
     @Redirect(method = "setOnFireFromLava",at= @At(value = "INVOKE",target = "Lnet/minecraft/util/math/random/Random;nextFloat()F"))
     public float random1(Random instance){
