@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "id": "fastrandom",
   "version": "${version}",
-  "name": "fastrandom",
+  "name": "Faster Random",
   "description": "",
-  "authors": [],
+  "authors": ["AnOpenSauceDev"],
   "contact": {
-    "repo": "https://github.com/linux-pop_os-machine/nixium"
+    "repo": "https://github.com/AnOpenSauceDev/FastRandom"
   },
   "license": "GPL-3.0",
-  "icon": "assets/nixium/icon.png",
+  "icon": "assets/fastrandom/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
