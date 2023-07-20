@@ -1,10 +1,5 @@
 package com.github.anopensaucedev.fastmath.Util;
 
-import com.github.anopensaucedev.fastmath.mixin.BetterMaths;
-import net.minecraft.util.math.random.Random;
-import org.spongepowered.asm.mixin.Overwrite;
-
-import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class FastRandom {
@@ -22,13 +17,15 @@ public class FastRandom {
         return ThreadLocalRandom.current().nextFloat();
     }
 
-    public static float FastRandomInt(){
+    public static int FastRandomInt(){
         return ThreadLocalRandom.current().nextInt();
     }
 
+    public static double FastNextTriangular(double mode, double deviation) {
+        return mode + deviation * (FastRandomDouble() - FastRandomDouble());
+    }
 
-
-    public static float FastRandomInt(int var){
+    public static int FastRandomInt(int var){
         return ThreadLocalRandom.current().nextInt(var);
     }
 
