@@ -45,19 +45,6 @@ public abstract class EntityMixin {
     }
 
 
-    /**
-     * @author AnOpenSauceDev
-     * @reason fix a common bug that happens when any amethyst is loaded (almost certainly in vanilla survival)
-     */
-    @Overwrite
-    private void playAmethystChimeSound() {
-        this.lastChimeIntensity *= (float)Math.pow(0.997, this.age - this.lastChimeAge);
-        this.lastChimeIntensity = Math.min(1.0f, this.lastChimeIntensity + 0.07f);
-        float f = 0.5f + this.lastChimeIntensity * FastRandom.FastRandomFloat() * 1.2f;
-        float g = 0.1f + this.lastChimeIntensity * 1.2f;
-        this.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, g, f);
-        this.lastChimeAge = this.age;
-    }
 
 
 
