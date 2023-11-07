@@ -9,6 +9,7 @@
     "MobEntityMixin"
   ],
   "client": [
+    "slightlySpeedierTick"
   ],
   "injectors": {
     "defaultRequire": 1
