@@ -14,10 +14,10 @@ public class Main implements ModInitializer {
 
     public static final String MOD_ID = "fastrandom";
 
-    public static Logger MainLogger = LoggerFactory.getLogger(MOD_ID);
+    public static Logger MainLogger = LoggerFactory.getLogger("Faster Random Logger");
 
     @Override
     public void onInitialize() {
-        MainLogger.info("FastRandom has loaded!");
+        MainLogger.info("Faster Random has loaded!");
     }
 }

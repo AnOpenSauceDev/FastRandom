@@ -31,7 +31,7 @@ public abstract class EntityMixin {
     @Shadow public int age;
 
 
-    @Shadow @Final protected Random random = null; // null out
+
 
 
     @Redirect(method = "setOnFireFromLava",at= @At(value = "INVOKE",target = "Lnet/minecraft/util/math/random/Random;nextFloat()F"))
@@ -44,19 +44,23 @@ public abstract class EntityMixin {
         return FastRandom.FastRandomFloat();
     }
 
+
     /**
-     * @author
-     * @reason
+     * @author AnOpenSauceDev
+     * @reason fix a common bug that happens when any amethyst is loaded (almost certainly in vanilla survival)
      */
     @Overwrite
-    public void playStepSound(BlockPos pos, BlockState state) {
-        lastChimeIntensity *= (float) Math.pow(0.997, this.age - this.lastChimeAge);
+    private void playAmethystChimeSound() {
+        this.lastChimeIntensity *= (float)Math.pow(0.997, this.age - this.lastChimeAge);
         this.lastChimeIntensity = Math.min(1.0f, this.lastChimeIntensity + 0.07f);
         float f = 0.5f + this.lastChimeIntensity * FastRandom.FastRandomFloat() * 1.2f;
         float g = 0.1f + this.lastChimeIntensity * 1.2f;
         this.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, g, f);
-        lastChimeAge = age;
+        this.lastChimeAge = this.age;
     }
+
+
+
 
     @Redirect(method = "playAmethystChimeSound",at= @At(value = "INVOKE",target = "Lnet/minecraft/util/math/random/Random;nextFloat()F"))
     public float random3(Random instance){

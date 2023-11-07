@@ -3,7 +3,7 @@
   "id": "fastrandom",
   "version": "${version}",
   "name": "Faster Random",
-  "description": "",
+  "description": "Makes your game randomly faster!",
   "authors": ["AnOpenSauceDev"],
   "contact": {
     "repo": "https://github.com/AnOpenSauceDev/FastRandom"
@@ -22,6 +22,6 @@
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "*"
+    "minecraft": ">=1.20"
   }
 }
