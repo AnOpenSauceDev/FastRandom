@@ -1,6 +1,8 @@
 package com.github.anopensaucedev.fastmath.Util;
 
 import com.github.anopensaucedev.fastmath.mixin.BetterMaths;
+import net.minecraft.util.math.random.BaseRandom;
+import net.minecraft.util.math.random.CheckedRandom;
 import net.minecraft.util.math.random.Random;
 import org.spongepowered.asm.mixin.Overwrite;
 
