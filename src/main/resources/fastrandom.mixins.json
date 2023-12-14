@@ -6,7 +6,6 @@
   "mixins": [
     "BetterMaths",
     "EntityMixin",
-    "MobEntityMixin"
   ],
   "client": [
   ],

@@ -18,8 +18,8 @@ public class Main implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        MainLogger.info("Faster Random has loaded!");
-        MainLogger.warn("While terrain generation will \"function\" properly, cave generation will have a different seed, which may or may not be noticeable. Keep this in mind.");
+        MainLogger.info("Faster Random has loaded! \\0_0/");
+        MainLogger.warn("While terrain generation will \"function\" properly, cave generation will have a different seed (in singleplayer / if this mod is on the server), which may or may not be noticeable. Keep this in mind.");
         MainLogger.warn("If you have any terrain-related issues, make sure to mention me (AnOpenSauceDev) in an issue just to be sure!");
     }
 }

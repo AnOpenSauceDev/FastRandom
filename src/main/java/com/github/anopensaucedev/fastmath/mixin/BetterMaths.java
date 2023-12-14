@@ -11,14 +11,10 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 import java.util.UUID;
 
-@Mixin(MathHelper.class)
+@Mixin(value = MathHelper.class,priority = 2000)
 public class BetterMaths {
 
-
-
-
-
-
+    //
 
     /**
      * @author AnOpenSauceDev
@@ -69,7 +65,7 @@ public class BetterMaths {
         if (min >= max) {
             return min;
         }
-        return (int) FastRandom.FastRandomInt(max - min + 1) + min; // unnecessarily long?
+        return (int) FastRandom.FastRandomInt(max - min + 1) + min;
         //return random.nextInt(max - min + 1) + min;
     }
 
@@ -82,7 +78,7 @@ public class BetterMaths {
         if (min >= max) {
             return min;
         }
-        return FastRandom.FastRandomFloat() * (max - min) + min; // what is this!?
+        return FastRandom.FastRandomFloat() * (max - min) + min;
         //return random.nextFloat() * (max - min) + min;
     }
 
@@ -95,7 +91,7 @@ public class BetterMaths {
         if (min >= max) {
             return min;
         }
-        return FastRandom.FastRandomDouble() * (max - min) + min; // what is this!?
+        return FastRandom.FastRandomDouble() * (max - min) + min;
     }
 
 
