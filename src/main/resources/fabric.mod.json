@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "fastrandom",
+  "id": "faster-random",
   "version": "${version}",
   "name": "Faster Random",
   "description": "Makes your game randomly faster!",
