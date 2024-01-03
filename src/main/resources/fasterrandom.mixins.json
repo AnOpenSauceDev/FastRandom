@@ -1,11 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.github.anopensaucedev.fastmath.mixin",
+  "package": "com.github.anopensaucedev.fasterrandom.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BetterMaths",
-    "EntityMixin",
+    "MathHelperMixin",
+    "CheckedRandomMixin",
+    "LocalRandomMixin"
   ],
   "client": [
   ],
