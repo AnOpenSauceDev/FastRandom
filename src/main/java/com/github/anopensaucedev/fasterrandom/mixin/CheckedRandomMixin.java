@@ -18,7 +18,7 @@ public class CheckedRandomMixin {
 	@Shadow @Final private GaussianGenerator gaussianGenerator;
 
 	@Inject(method = "setSeed", at = @At(value = "HEAD"), cancellable = true)
-	private void fastrandom$nextIntInject(long seed, @NotNull CallbackInfo ci) {
+	private void fasterrandom$setSeedInject(long seed, @NotNull CallbackInfo ci) {
 		FasterRandom.random = RandomGeneratorFactory.of("L64X128MixRandom").create(seed);
 		gaussianGenerator.reset();
 

@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(GaussianGenerator.class)
 public class GaussianGeneratorMixin {
 	@Inject(method = "next", at = @At(value = "HEAD"), cancellable = true)
-	private void fastrandom$nextInject(@NotNull CallbackInfoReturnable<Double> cir) {
+	private void fasterrandom$nextInject(@NotNull CallbackInfoReturnable<Double> cir) {
 		cir.setReturnValue(FasterRandom.random.nextGaussian());
 	}
 }
