@@ -9,6 +9,9 @@
     "GaussianGeneratorMixin"
   ],
   "client": [
+    "client.StuckObjectsFeatureRendererMixin",
+    "client.accessor.ModelPartAccessor",
+    "client.accessor.PlayerEntityModelAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
