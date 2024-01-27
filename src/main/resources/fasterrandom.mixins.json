@@ -9,6 +9,7 @@
     "GaussianGeneratorMixin"
   ],
   "client": [
+    "client.ItemEntityRendererMixin",
     "client.StuckObjectsFeatureRendererMixin",
     "client.accessor.ModelPartAccessor",
     "client.accessor.PlayerEntityModelAccessor"
