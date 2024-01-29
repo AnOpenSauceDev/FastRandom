@@ -6,6 +6,8 @@
   "mixins": [
     "BaseRandomMixin",
     "CheckedRandomMixin",
+    "EnchantmentHelperMixin",
+    "EnchantmentScreenHandlerMixin",
     "GaussianGeneratorMixin"
   ],
   "client": [
