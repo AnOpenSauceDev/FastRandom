@@ -6,15 +6,9 @@
   "mixins": [
     "BaseRandomMixin",
     "CheckedRandomMixin",
-    "EnchantmentHelperMixin",
-    "EnchantmentScreenHandlerMixin",
-    "GaussianGeneratorMixin"
-  ],
-  "client": [
-    "client.ItemEntityRendererMixin",
-    "client.StuckObjectsFeatureRendererMixin",
-    "client.accessor.ModelPartAccessor",
-    "client.accessor.PlayerEntityModelAccessor"
+    "LocalRandomMixin",
+    "ThreadSafeRandomMixin",
+    "Xoroshiro128PlusPlusRandomMixin"
   ],
   "injectors": {
     "defaultRequire": 1

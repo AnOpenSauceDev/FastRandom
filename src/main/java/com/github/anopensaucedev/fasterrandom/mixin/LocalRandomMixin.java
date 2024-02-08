@@ -2,7 +2,7 @@ package com.github.anopensaucedev.fasterrandom.mixin;
 
 import com.github.anopensaucedev.fasterrandom.extension.BaseRandomExtension;
 import net.minecraft.util.math.random.BaseRandom;
-import net.minecraft.util.math.random.CheckedRandom;
+import net.minecraft.util.math.random.LocalRandom;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
 
-@Mixin(CheckedRandom.class)
-public abstract class CheckedRandomMixin implements BaseRandom, BaseRandomExtension {
+@Mixin(LocalRandom.class)
+public abstract class LocalRandomMixin implements BaseRandom, BaseRandomExtension {
 	@Unique
 	RandomGenerator fasterrandom$randomGenerator;
 
