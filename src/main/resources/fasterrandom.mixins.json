@@ -4,10 +4,7 @@
   "package": "com.github.anopensaucedev.fasterrandom.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BaseRandomMixin",
-    "GaussianGeneratorMixin"
-  ],
-  "client": [
+    "RandomMixin"
   ],
   "injectors": {
     "defaultRequire": 1
