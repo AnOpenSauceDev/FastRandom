@@ -14,6 +14,9 @@
   "entrypoints": {
     "main": [
       "com.github.anopensaucedev.fasterrandom.FasterRandom"
+    ],
+    "preLaunch": [
+      "com.github.anopensaucedev.fasterrandom.FasterRandomPrelaunch"
     ]
   },
   "mixins": [
