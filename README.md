@@ -1,4 +1,6 @@
 # FastRandom
 Source Code and issues for [Faster Random](https://modrinth.com/mod/faster-random)
 
-I occasionally update this, that's about it.
+Requires a JVM that supports `RandomGenerator` and the LXM generators. Some JRE's don't support this.
+
+Licensed under Apache 2.0
