@@ -57,7 +57,8 @@ public class RandBench {
 		benchmarkLogger.info("java.util.random time: {}s, mean: {}s",oldRandomFinish,(float) (oldRandomFinish/ITERATIONS));
 		values.add(oldRandomFinish); //1
 
-		// ThreadLocalRandom, somehow slower than this benchmark I used: https://github.com/AnOpenSauceDev/Methane-mod/blob/4c8134366cc7d553bdd4ad82787f2acef0d7af09/src/main/java/com/modrinth/methane/util/MethaneTests.java#L11
+		// ThreadLocalRandom ("100X faster" than the old CheckedRandom)
+		//TODO: add old CheckedRandom impl as a benchmark too.
 		benchmarkLogger.info("ThreadLocalRandom");
 		var threadLocalRandom = ThreadLocalRandom.current();
 		var threadLocalStart = System.nanoTime();
