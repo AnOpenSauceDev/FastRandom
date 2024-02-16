@@ -8,13 +8,13 @@ public class FasterRandomPrelaunch implements PreLaunchEntrypoint {
 
 	public static Logger logger = LoggerFactory.getLogger("Faster Random Prelaunch");
 
-	public static final String SYSTEM_PROPERTY_JVM_STRING = "java.vm.name";
+	public static final String SYSTEM_PROPERTY_JVM_STRING = "java.vm.vendor";
 
 	@Override
 	public void onPreLaunch() {
 
 		logger.info("preparing to launch Faster Random!");
-		logger.info("Checking if JVM \"{}\" is officially supported by Faster Random...",System.getProperty(SYSTEM_PROPERTY_JVM_STRING));
+		logger.info("Checking if JVM \"{}\", version {} is officially supported by Faster Random...",System.getProperty(SYSTEM_PROPERTY_JVM_STRING), System.getProperty("java.vm.version"));
 		if(isJVMsupported(System.getProperty(SYSTEM_PROPERTY_JVM_STRING))){
 			logger.info("JVM supported! Faster Random should behave correctly.");
 		}else {
@@ -23,7 +23,7 @@ public class FasterRandomPrelaunch implements PreLaunchEntrypoint {
 
 	}
 
-	public boolean isJVMsupported(String vm){
+	public boolean isJVMsupported(String vm){ // Eclipse Adoptium // Azul // GraalVM all work
 
 		if(vm.contains("OpenJDK")){ // if our vendor is OpenJDK (seems to work)
 			return true;

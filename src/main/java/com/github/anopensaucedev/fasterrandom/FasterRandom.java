@@ -25,5 +25,11 @@ public class FasterRandom implements ModInitializer {
 				"While terrain generation will \"function\" properly, cave generation will have a different seed (in singleplayer / if this mod is on the server), which may or may not be noticeable. Keep this in mind.");
 		LOGGER.warn("If you have any terrain-related issues, make sure to mention me (AnOpenSauceDev) in an issue just to be sure!");
 		LOGGER.info("Faster Random Issue Tracker: https://github.com/AnOpenSauceDev/FastRandom/issues");
+
+		//run random benchmarks
+		if(FabricLoader.getInstance().isDevelopmentEnvironment()){
+			RandBench.StartBenchmark();
+		}
+
 	}
 }
