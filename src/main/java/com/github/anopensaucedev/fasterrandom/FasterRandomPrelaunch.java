@@ -14,26 +14,10 @@ public class FasterRandomPrelaunch implements PreLaunchEntrypoint {
 	public void onPreLaunch() {
 
 		logger.info("preparing to launch Faster Random!");
-		logger.info("Checking if JVM \"{}\", version {} is officially supported by Faster Random...",System.getProperty(SYSTEM_PROPERTY_JVM_STRING), System.getProperty("java.vm.version"));
-		if(isJVMsupported(System.getProperty(SYSTEM_PROPERTY_JVM_STRING))){
-			logger.info("JVM supported! Faster Random should behave correctly.");
-		}else {
-			logger.error("### WARNING! JVM Not supported! ### \n If minecraft crashes after this message, your JVM does not support the minimum requirements for Faster Random.");
-		}
+		logger.warn("If Minecraft crashes past this point, your JVM is not supported.");
+		FasterRandom.RANDOM_GENERATOR_FACTORY.create();
+		logger.info("Your JVM seems to be supported!");
 
-	}
-
-	public boolean isJVMsupported(String vm){ // Eclipse Adoptium // Azul // GraalVM all work
-
-		if(vm.contains("OpenJDK")){ // if our vendor is OpenJDK (seems to work)
-			return true;
-		}
-
-		if(vm.contains("GraalVM")){ // if our vendor is GraalVM (works)
-			return true;
-		}
-
-		return false;
 	}
 
 }
