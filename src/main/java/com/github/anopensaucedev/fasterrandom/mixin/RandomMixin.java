@@ -1,6 +1,7 @@
 package com.github.anopensaucedev.fasterrandom.mixin;
 
 import com.github.anopensaucedev.fasterrandom.RandomGeneratorRandom;
+import io.netty.util.internal.ThreadLocalRandom;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.math.random.RandomSeed;
 import org.jetbrains.annotations.NotNull;
@@ -18,7 +19,7 @@ public interface RandomMixin {
 
 	@Inject(method = "createLocal", at = @At(value = "HEAD"), cancellable = true)
 	private static void fasterrandom$createLocalInject(@NotNull CallbackInfoReturnable<Random> cir) {
-		cir.setReturnValue(new RandomGeneratorRandom(RandomSeed.getSeed()));
+		cir.setReturnValue(new RandomGeneratorRandom(ThreadLocalRandom.current().nextLong()));
 	}
 
 	@Inject(method = "createThreadSafe", at = @At(value = "HEAD"), cancellable = true)
