@@ -23,7 +23,7 @@
     "fasterrandom.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": ">=0.14",
     "minecraft": ">=1.19"
   }
 }
