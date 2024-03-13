@@ -5,7 +5,7 @@ import net.minecraft.util.math.random.*;
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
 
-public class RandomGeneratorRandom implements BaseRandom {
+public class TheFasterRandom implements BaseRandom {
 	private static final RandomGeneratorFactory<RandomGenerator.SplittableGenerator> RANDOM_GENERATOR_FACTORY = RandomGeneratorFactory.of("L64X128MixRandom");
 
 	private static final int INT_BITS = 48;
@@ -16,19 +16,19 @@ public class RandomGeneratorRandom implements BaseRandom {
 	private long seed;
 	private RandomGenerator.SplittableGenerator randomGenerator;
 
-	public RandomGeneratorRandom(long seed) {
+	public TheFasterRandom(long seed) {
 		this.seed = seed;
 		this.randomGenerator = RANDOM_GENERATOR_FACTORY.create(seed);
 	}
 
-	public RandomGeneratorRandom(long seed, RandomGenerator.SplittableGenerator randomGenerator) {
+	public TheFasterRandom(long seed, RandomGenerator.SplittableGenerator randomGenerator) {
 		this.seed = seed;
 		this.randomGenerator = randomGenerator;
 	}
 
 	@Override
 	public Random split() {
-		return new RandomGeneratorRandom(seed, randomGenerator.split());
+		return new TheFasterRandom(seed, randomGenerator.split());
 	}
 
 	@Override
