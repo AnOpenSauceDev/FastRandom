@@ -1,21 +1,14 @@
 package com.github.anopensaucedev.fasterrandom;
 
 import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.util.random.RandomGeneratorFactory;
 
 public class FasterRandomPrelaunch implements PreLaunchEntrypoint {
-
-	public static Logger logger = LoggerFactory.getLogger("Faster Random Prelaunch");
-
 	@Override
 	public void onPreLaunch() {
-
-		logger.info("preparing to launch Faster Random!");
-		logger.warn("If Minecraft crashes past this point, your JVM is not supported.");
-		FasterRandom.RANDOM_GENERATOR_FACTORY.create();
-		logger.info("Your JVM seems to be supported!");
-
+		if (!RandomGeneratorFactory.all().map(RandomGeneratorFactory::name).toList().contains("L64X128MixRandom")) {
+			throw new RuntimeException("[Faster Random] This JVM does not implement L64X128MixRandom!");
+		}
 	}
-
 }
