@@ -3,10 +3,11 @@ package com.github.anopensaucedev.fasterrandom;
 import net.minecraft.util.math.random.*;
 
 import java.util.random.RandomGenerator;
-
-import static com.github.anopensaucedev.fasterrandom.FasterRandom.RANDOM_GENERATOR_FACTORY;
+import java.util.random.RandomGeneratorFactory;
 
 public class RandomGeneratorRandom implements BaseRandom {
+	private static final RandomGeneratorFactory<RandomGenerator.SplittableGenerator> RANDOM_GENERATOR_FACTORY = RandomGeneratorFactory.of("L64X128MixRandom");
+
 	private static final int INT_BITS = 48;
 	private static final long SEED_MASK = 0xFFFFFFFFFFFFL;
 	private static final long MULTIPLIER = 25214903917L;
@@ -32,7 +33,7 @@ public class RandomGeneratorRandom implements BaseRandom {
 
 	@Override
 	public RandomSplitter nextSplitter() {
-		return new CheckedRandom.Splitter(this.seed);
+		return new CheckedRandom.Splitter(this.nextLong());
 	}
 
 	@Override
