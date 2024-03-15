@@ -1,0 +1,29 @@
+name: Bug Report
+description: Found a crash/something acting not quite right? Report them here.
+title: "[BUG]: <title>"
+labels: ["bug"]
+body:
+- type: checkboxes
+  label: Does an issue already cover this?
+  options:
+  - label: I have searched for any existing issues, and didn't find any.
+  required: true
+- type: textarea
+  attributes:
+    label: Issue description.
+    description: Please describe what the issue is in a detailed manner.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Issue replication.
+    description: Please describe how to reproduce this issue in-game.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Log File / Crash Report (if applicable)
+    description: If Minecraft doesn't crash while locked up, forcefully cause a crash by holding F3 + C for 10 seconds.
+  validations:
+    required: false
+    
