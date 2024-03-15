@@ -11,7 +11,7 @@ body:
     label: Does an issue already cover this?
     options:
     - label: I have searched for any existing issues, and didn't find any.
-    required: true
+      required: true
 - type: textarea
   attributes:
     label: Issue description.
