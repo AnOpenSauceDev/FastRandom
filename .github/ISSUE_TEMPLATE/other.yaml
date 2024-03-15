@@ -1,0 +1,19 @@
+name: Other Issue
+description: Issues that aren't related to bugs/crashes with Faster Random.
+title: "[OTHER]: "
+body:
+- type: markdown
+  attributes:
+    value: Welcome to the Faster Random issue tracker! Please fill out these fields for your issue.
+- type: checkboxes
+  attributes:
+    label: Does an issue already cover this?
+    options:
+    - label: I have searched for any existing issues, and didn't find any.
+      required: true
+- type: textarea
+  attributes:
+    label: Issue description.
+    description: Please describe what the issue is in a detailed manner.
+  validations:
+    required: true
