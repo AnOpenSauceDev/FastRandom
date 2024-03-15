@@ -3,6 +3,9 @@ description: Found a crash/something acting not quite right? Report them here.
 title: "[BUG]: <title>"
 labels: ["bug"]
 body:
+- type: markdown
+  attributes:
+    value: Welcome to the Faster Random issue tracker! Please fill out these fields for your bug report.
 - type: checkboxes
   label: Does an issue already cover this?
   options:
