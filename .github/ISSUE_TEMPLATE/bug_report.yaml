@@ -7,10 +7,11 @@ body:
   attributes:
     value: Welcome to the Faster Random issue tracker! Please fill out these fields for your bug report.
 - type: checkboxes
-  label: Does an issue already cover this?
-  options:
-  - label: I have searched for any existing issues, and didn't find any.
-  required: true
+  attributes:
+    label: Does an issue already cover this?
+    options:
+    - label: I have searched for any existing issues, and didn't find any.
+    required: true
 - type: textarea
   attributes:
     label: Issue description.
