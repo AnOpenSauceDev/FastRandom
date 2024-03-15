@@ -4,6 +4,7 @@
   "package": "com.github.anopensaucedev.fasterrandom.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ChunkRandomMixin",
     "RandomMixin"
   ],
   "injectors": {

@@ -32,8 +32,8 @@ public class FasterRandom implements ModInitializer {
 
 		//run random benchmarks
 		if(FabricLoader.getInstance().isDevelopmentEnvironment()){
-			LegacyBenchmark(); // older benchmark from Methane, where CheckedRandom is 100x slower than Threadlocal?
-			RandBench.StartBenchmark();
+			//LegacyBenchmark(); // older benchmark from Methane, where CheckedRandom is 100x slower than Threadlocal?
+			//RandBench.StartBenchmark();
 		}
 
 	}
