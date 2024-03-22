@@ -12,6 +12,12 @@ body:
     options:
     - label: I have searched for any existing issues, and didn't find any.
       required: true
+- type: checkboxes
+  attributes:
+    label: Does your system support Faster Random?
+    options:
+    - label: I have checked that my JVM supports Faster Random 3.0.0+.
+      required: true
 - type: textarea
   attributes:
     label: Issue description.
