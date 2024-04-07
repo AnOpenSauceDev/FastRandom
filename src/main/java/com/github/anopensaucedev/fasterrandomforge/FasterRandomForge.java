@@ -53,7 +53,7 @@ public class FasterRandomForge
 
 		LOGGER.info("Faster Random has loaded!");
 
-
     }
+
 
 }
