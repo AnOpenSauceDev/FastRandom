@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "FasterRandomForge.refmap.json",
   "mixins": [
+    "ChunkRandomMixin",
+    "RandomMixin"
   ],
   "client": [
   ],
