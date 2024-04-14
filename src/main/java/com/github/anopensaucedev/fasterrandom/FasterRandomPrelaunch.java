@@ -8,8 +8,6 @@ public class FasterRandomPrelaunch implements PreLaunchEntrypoint {
 
 	public static Logger logger = LoggerFactory.getLogger("Faster Random Prelaunch");
 
-	public static final String SYSTEM_PROPERTY_JVM_STRING = "java.vm.vendor";
-
 	@Override
 	public void onPreLaunch() {
 

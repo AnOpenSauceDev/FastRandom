@@ -2,7 +2,7 @@
 //file:noinspection GroovyAssignabilityCheck
 
 plugins {
-    id 'fabric-loom' version '1.2-SNAPSHOT'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'maven-publish'
 }
 

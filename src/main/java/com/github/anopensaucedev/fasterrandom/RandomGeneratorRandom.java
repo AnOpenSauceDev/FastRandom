@@ -32,8 +32,7 @@ public class RandomGeneratorRandom implements BaseRandom {
 
 	@Override
 	public RandomSplitter nextSplitter() {
-		// TODO: Should this use this.seed instead of nextLong()?
-		return new CheckedRandom.Splitter(nextLong());
+		return new CheckedRandom.Splitter(this.seed);
 	}
 
 	@Override
