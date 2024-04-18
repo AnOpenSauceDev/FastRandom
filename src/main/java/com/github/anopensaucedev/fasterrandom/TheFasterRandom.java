@@ -1,6 +1,10 @@
 package com.github.anopensaucedev.fasterrandom;
 
-import net.minecraft.util.math.random.*;
+import com.google.common.annotations.VisibleForTesting;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.BaseRandom;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.util.math.random.RandomSplitter;
 
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
@@ -21,19 +25,14 @@ public class TheFasterRandom implements BaseRandom {
 		this.randomGenerator = RANDOM_GENERATOR_FACTORY.create(seed);
 	}
 
-	public TheFasterRandom(long seed, RandomGenerator.SplittableGenerator randomGenerator) {
-		this.seed = seed;
-		this.randomGenerator = randomGenerator;
-	}
-
 	@Override
 	public Random split() {
-		return new TheFasterRandom(seed, randomGenerator.split());
+		return new TheFasterRandom(this.nextLong());
 	}
 
 	@Override
 	public RandomSplitter nextSplitter() {
-		return new CheckedRandom.Splitter(this.nextLong());
+		return new TheFasterRandomSplitter(this.nextLong());
 	}
 
 	@Override
@@ -81,5 +80,23 @@ public class TheFasterRandom implements BaseRandom {
 	@Override
 	public double nextGaussian() {
 		return randomGenerator.nextGaussian();
+	}
+
+	private record TheFasterRandomSplitter(long seed) implements RandomSplitter {
+		@Override
+		public Random split(int x, int y, int z) {
+			return new TheFasterRandom(MathHelper.hashCode(x, y, z) ^ this.seed);
+		}
+
+		@Override
+		public Random split(String seed) {
+			return new TheFasterRandom((long) seed.hashCode() ^ this.seed);
+		}
+
+		@Override
+		@VisibleForTesting
+		public void addDebugInfo(StringBuilder info) {
+			info.append("TheFasterRandomSplitter{").append(this.seed).append("}");
+		}
 	}
 }
