@@ -18,12 +18,6 @@ loom {
             sourceSet sourceSets.main
         }
     }
-
-    runs {
-        runClient {
-            jvmArgs "-Dmixin.debug.export=true"
-        }
-    }
 }
 
 repositories {
