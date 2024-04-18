@@ -60,7 +60,7 @@ public class TheFasterRandom implements BaseRandom {
 
 	@Override
 	public long nextLong() {
-		return randomGenerator.nextInt();
+		return randomGenerator.nextLong();
 	}
 
 	@Override
