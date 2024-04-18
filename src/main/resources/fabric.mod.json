@@ -18,9 +18,6 @@
   "icon": "assets/fasterrandom/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "com.github.anopensaucedev.fasterrandom.FasterRandom"
-    ],
     "preLaunch": [
       "com.github.anopensaucedev.fasterrandom.FasterRandomPrelaunch"
     ]
