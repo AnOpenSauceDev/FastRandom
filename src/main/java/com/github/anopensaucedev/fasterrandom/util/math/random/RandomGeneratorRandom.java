@@ -59,7 +59,7 @@ public class RandomGeneratorRandom implements BaseRandom {
 
 	@Override
 	public long nextLong() {
-		return randomGenerator.nextInt();
+		return randomGenerator.nextLong();
 	}
 
 	@Override
