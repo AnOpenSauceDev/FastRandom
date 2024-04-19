@@ -16,7 +16,7 @@
       "com.github.anopensaucedev.fasterrandom.FasterRandom"
     ],
     "preLaunch": [
-      "com.github.anopensaucedev.fasterrandom.FasterRandomPrelaunch"
+      "com.github.anopensaucedev.fasterrandom.FasterRandomPreLaunch"
     ]
   },
   "mixins": [
