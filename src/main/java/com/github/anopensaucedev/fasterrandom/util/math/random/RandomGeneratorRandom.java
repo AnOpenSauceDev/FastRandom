@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.fasterrandom;
+package com.github.anopensaucedev.fasterrandom.util.math.random;
 
 import net.minecraft.util.math.random.*;
 
@@ -59,7 +59,7 @@ public class RandomGeneratorRandom implements BaseRandom {
 
 	@Override
 	public long nextLong() {
-		return randomGenerator.nextInt();
+		return randomGenerator.nextLong();
 	}
 
 	@Override
