@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.fasterrandom;
+package com.github.anopensaucedev.fasterrandom.util.math.random;
 
 import net.minecraft.util.math.random.*;
 

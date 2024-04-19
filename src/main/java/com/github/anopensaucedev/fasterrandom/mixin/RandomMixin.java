@@ -1,6 +1,6 @@
 package com.github.anopensaucedev.fasterrandom.mixin;
 
-import com.github.anopensaucedev.fasterrandom.RandomGeneratorRandom;
+import com.github.anopensaucedev.fasterrandom.util.math.random.RandomGeneratorRandom;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.math.random.RandomSeed;
 import org.jetbrains.annotations.NotNull;
