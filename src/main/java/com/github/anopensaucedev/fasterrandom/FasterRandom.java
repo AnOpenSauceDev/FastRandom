@@ -21,15 +21,7 @@ public class FasterRandom implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("{} v{} has loaded! \\0_0/", MOD_NAME, MOD_VERSION);
-		LOGGER.info(
-				"If you have any terrain-related problems, open an issue on the issue tracker. Make sure to mention me (AnOpenSauceDev) in the issue just to be sure!");
-		LOGGER.info("Faster Random issue tracker: https://github.com/AnOpenSauceDev/FastRandom/issues");
+		LOGGER.info("{}-API v{} has loaded! \\0_0/", MOD_NAME, MOD_VERSION);
 
-		// Run random benchmarks if the mod is running in a development environment
-		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-			RandomNumberGenerationBenchmark.runLegacyBenchmark();
-			RandomNumberGenerationBenchmark.runBenchmark();
-		}
 	}
 }

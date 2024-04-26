@@ -9,7 +9,7 @@ public class FasterRandomPreLaunch implements PreLaunchEntrypoint {
 
 	@Override
 	public void onPreLaunch() {
-		LOGGER.info("Preparing to launch Faster Random!");
+		LOGGER.info("Preparing to launch Faster Random-API!");
 		LOGGER.info("If Minecraft crashes past this point, your JVM is not supported.");
 		FasterRandom.RANDOM_GENERATOR_FACTORY.create();
 		LOGGER.info("Your JVM seems to be supported!");
