@@ -4,7 +4,7 @@ import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
 
 import java.util.random.RandomGeneratorFactory;
 
-public class FasterRandomPrelaunch implements PreLaunchEntrypoint {
+public class FasterRandomPreLaunch implements PreLaunchEntrypoint {
 	@Override
 	public void onPreLaunch() {
 		if (!RandomGeneratorFactory.all().map(RandomGeneratorFactory::name).toList().contains("L64X128MixRandom")) {

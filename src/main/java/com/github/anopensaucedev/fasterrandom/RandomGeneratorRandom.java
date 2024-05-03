@@ -9,7 +9,7 @@ import net.minecraft.util.math.random.RandomSplitter;
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
 
-public class TheFasterRandom implements BaseRandom {
+public class RandomGeneratorRandom implements BaseRandom {
 	private static final RandomGeneratorFactory<RandomGenerator.SplittableGenerator> RANDOM_GENERATOR_FACTORY = RandomGeneratorFactory.of("L64X128MixRandom");
 
 	private static final int INT_BITS = 48;
@@ -20,19 +20,19 @@ public class TheFasterRandom implements BaseRandom {
 	private long seed;
 	private RandomGenerator.SplittableGenerator randomGenerator;
 
-	public TheFasterRandom(long seed) {
+	public RandomGeneratorRandom(long seed) {
 		this.seed = seed;
 		this.randomGenerator = RANDOM_GENERATOR_FACTORY.create(seed);
 	}
 
 	@Override
 	public Random split() {
-		return new TheFasterRandom(this.nextLong());
+		return new RandomGeneratorRandom(this.nextLong());
 	}
 
 	@Override
 	public RandomSplitter nextSplitter() {
-		return new TheFasterRandomSplitter(this.nextLong());
+		return new Splitter(this.nextLong());
 	}
 
 	@Override
@@ -82,21 +82,21 @@ public class TheFasterRandom implements BaseRandom {
 		return randomGenerator.nextGaussian();
 	}
 
-	private record TheFasterRandomSplitter(long seed) implements RandomSplitter {
+	private record Splitter(long seed) implements RandomSplitter {
 		@Override
 		public Random split(int x, int y, int z) {
-			return new TheFasterRandom(MathHelper.hashCode(x, y, z) ^ this.seed);
+			return new RandomGeneratorRandom(MathHelper.hashCode(x, y, z) ^ this.seed);
 		}
 
 		@Override
 		public Random split(String seed) {
-			return new TheFasterRandom((long) seed.hashCode() ^ this.seed);
+			return new RandomGeneratorRandom((long) seed.hashCode() ^ this.seed);
 		}
 
 		@Override
 		@VisibleForTesting
 		public void addDebugInfo(StringBuilder info) {
-			info.append("TheFasterRandomSplitter{").append(this.seed).append("}");
+			info.append("RandomGeneratorRandom$Splitter{").append(this.seed).append("}");
 		}
 	}
 }

@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "preLaunch": [
-      "com.github.anopensaucedev.fasterrandom.FasterRandomPrelaunch"
+      "com.github.anopensaucedev.fasterrandom.FasterRandomPreLaunch"
     ]
   },
   "mixins": [
