@@ -12,10 +12,25 @@ base {
     archivesName = project.archives_base_name
 }
 
+sourceSets {
+    testmod {
+        compileClasspath += main.compileClasspath
+        runtimeClasspath += main.runtimeClasspath
+    }
+}
+
 loom {
     mods {
         "faster-random" {
             sourceSet sourceSets.main
+        }
+    }
+
+    runs {
+        testmod {
+            client()
+            name = "TestMod"
+            source sourceSets.testmod
         }
     }
 }

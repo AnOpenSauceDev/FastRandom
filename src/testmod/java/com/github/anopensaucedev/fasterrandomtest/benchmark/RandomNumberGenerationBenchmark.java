@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.fasterrandom.benchmark;
+package com.github.anopensaucedev.fasterrandomtest.benchmark;
 
 import net.minecraft.util.math.random.CheckedRandom;
 import net.minecraft.util.math.random.RandomSeed;
