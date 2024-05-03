@@ -1,4 +1,4 @@
-# FastRandom
+# Faster Random
 
 Source Code and issues for [Faster Random](https://modrinth.com/mod/faster-random)
 
