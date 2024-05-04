@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "faster-random-test",
+  "version": "1.0.0",
+  "name": "Faster Random Test",
+  "description": "TestMod for Faster Random",
+  "authors": [
+    "AnOpenSauceDev"
+  ],
+  "contributors": [
+    "Steveplays28",
+    "unilock"
+  ],
+  "license": "Apache-2.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.anopensaucedev.fasterrandomtest.FasterRandomTest"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14",
+    "minecraft": ">=1.19"
+  }
+}

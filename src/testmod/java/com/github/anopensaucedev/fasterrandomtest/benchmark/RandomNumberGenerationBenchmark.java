@@ -1,6 +1,5 @@
-package com.github.anopensaucedev.fasterrandom.benchmark;
+package com.github.anopensaucedev.fasterrandomtest.benchmark;
 
-import com.github.anopensaucedev.fasterrandom.FasterRandom;
 import net.minecraft.util.math.random.CheckedRandom;
 import net.minecraft.util.math.random.RandomSeed;
 import org.slf4j.Logger;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.random.RandomGeneratorFactory;
 
 /**
  * A benchmarking tool for various random number generators.
@@ -93,7 +93,7 @@ public class RandomNumberGenerationBenchmark {
 
 		// LXM random
 		BENCHMARK_LOGGER.info("LXM");
-		var generator = FasterRandom.RANDOM_GENERATOR_FACTORY.create();
+		var generator = RandomGeneratorFactory.of("L64X128MixRandom").create();
 		var lxmStart = System.nanoTime();
 		for (int i = 0; i < ITERATIONS; i++) {
 			generator.nextFloat();
@@ -141,7 +141,7 @@ public class RandomNumberGenerationBenchmark {
 				"Legacy Random Number Generation Benchmark (Random): {}", RandomNumberGenerationBenchmark.toSeconds(finalTime2));
 
 		if (finalTime < finalTime2) {
-			FasterRandom.LOGGER.info("ThreadLocal was faster!");
+			BENCHMARK_LOGGER.info("ThreadLocal was faster!");
 		}
 	}
 
