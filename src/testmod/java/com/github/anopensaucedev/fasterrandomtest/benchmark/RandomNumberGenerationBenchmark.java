@@ -2,6 +2,8 @@ package com.github.anopensaucedev.fasterrandomtest.benchmark;
 
 import net.minecraft.util.math.random.CheckedRandom;
 import net.minecraft.util.math.random.RandomSeed;
+import net.minecraft.util.math.random.Xoroshiro128PlusPlusRandom;
+import net.minecraft.util.math.random.Xoroshiro128PlusPlusRandomImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +29,7 @@ public class RandomNumberGenerationBenchmark {
 	/**
 	 * An ordered list of random number generator names.
 	 */
-	private static final String[] GENERATOR_NAMES = {"vanilla", "java.util.random", "ThreadLocalRandom", "LXM"};
+	private static final String[] GENERATOR_NAMES = {"vanilla", "java.util.random", "ThreadLocalRandom", "LXM","Xoroshiro128++Random"};
 	/**
 	 * The amount of iterations the benchmark runs.
 	 */
@@ -36,6 +38,19 @@ public class RandomNumberGenerationBenchmark {
 	 * The timing values of the tested random number generators.
 	 */
 	private static final ArrayList<Double> TIMING_VALUES = new ArrayList<>();
+
+	enum ANSI_COLOURS{
+		RESET("\033[0m"),
+		BOLD_YELLOW("\033[1;33m");
+
+		public final String value;
+
+		private ANSI_COLOURS(String data){
+			this.value = data;
+		}
+
+	}
+
 
 	/**
 	 * Runs a benchmark of various random number generators.
@@ -56,7 +71,7 @@ public class RandomNumberGenerationBenchmark {
 			VANILLA_RANDOM.nextBoolean();
 		}
 		var vanillaFinish = toSeconds(System.nanoTime() - vanillaStart);
-		BENCHMARK_LOGGER.info("Vanilla benchmark time: {}s, mean: {}s", vanillaFinish, (float) (vanillaFinish / ITERATIONS));
+		BENCHMARK_LOGGER.info("Vanilla benchmark time: {}{}s{}, mean: {}{}s{}", ANSI_COLOURS.BOLD_YELLOW.value , vanillaFinish, ANSI_COLOURS.RESET.value, ANSI_COLOURS.BOLD_YELLOW.value,  (float) (vanillaFinish / ITERATIONS), ANSI_COLOURS.RESET.value);
 		TIMING_VALUES.add(vanillaFinish); //0
 
 		// Java.util.random
@@ -71,7 +86,7 @@ public class RandomNumberGenerationBenchmark {
 			OLD_RANDOM.nextBoolean();
 		}
 		var oldRandomFinish = toSeconds(System.nanoTime() - oldRandomStart);
-		BENCHMARK_LOGGER.info("java.util.random time: {}s, mean: {}s", oldRandomFinish, (float) (oldRandomFinish / ITERATIONS));
+		BENCHMARK_LOGGER.info("java.util.random time: {}{}s{}, mean: {}{}s{}", ANSI_COLOURS.BOLD_YELLOW.value, oldRandomFinish, ANSI_COLOURS.RESET.value, ANSI_COLOURS.BOLD_YELLOW.value , (float) (oldRandomFinish / ITERATIONS), ANSI_COLOURS.RESET.value);
 		TIMING_VALUES.add(oldRandomFinish); //1
 
 		// ThreadLocalRandom ("100X faster" than the old CheckedRandom)
@@ -88,7 +103,7 @@ public class RandomNumberGenerationBenchmark {
 			threadLocalRandom.nextBoolean();
 		}
 		var threadLocalFinish = toSeconds(System.nanoTime() - threadLocalStart);
-		BENCHMARK_LOGGER.info("ThreadLocalRandom time: {}s, mean: {}s", threadLocalFinish, (float) (threadLocalFinish / ITERATIONS));
+		BENCHMARK_LOGGER.info("ThreadLocalRandom time: {}{}s{}, mean: {}{}s{}", ANSI_COLOURS.BOLD_YELLOW.value, threadLocalFinish, ANSI_COLOURS.RESET.value, ANSI_COLOURS.BOLD_YELLOW.value, (float) (threadLocalFinish / ITERATIONS), ANSI_COLOURS.RESET.value);
 		TIMING_VALUES.add(threadLocalFinish); // 2
 
 		// LXM random
@@ -104,11 +119,26 @@ public class RandomNumberGenerationBenchmark {
 			generator.nextBoolean();
 		}
 		var lxmFinish = toSeconds(System.nanoTime() - lxmStart);
-		BENCHMARK_LOGGER.info("LXM time: {}s, mean: {}s", lxmFinish, (float) (lxmFinish / ITERATIONS));
+		BENCHMARK_LOGGER.info("LXM time: {}{}s{}, mean: {}{}s{}", ANSI_COLOURS.BOLD_YELLOW.value, lxmFinish, ANSI_COLOURS.RESET.value,ANSI_COLOURS.BOLD_YELLOW.value, (float) (lxmFinish / ITERATIONS),ANSI_COLOURS.RESET.value);
 		TIMING_VALUES.add(lxmFinish); // 3
 
-		BENCHMARK_LOGGER.info("Overall winner: {}s, from random generator: {}", Collections.min(TIMING_VALUES),
-				GENERATOR_NAMES[TIMING_VALUES.indexOf(Collections.min(TIMING_VALUES))]
+		BENCHMARK_LOGGER.info("Xoroshiro128++Random");
+		Xoroshiro128PlusPlusRandom xoroshirogenerator = new Xoroshiro128PlusPlusRandom(0);
+		var xoroStart = System.nanoTime();
+		for (int i = 0; i < ITERATIONS; i++){
+			xoroshirogenerator.nextFloat();
+			xoroshirogenerator.nextInt();
+			xoroshirogenerator.nextDouble();
+			xoroshirogenerator.nextGaussian();
+			xoroshirogenerator.nextLong();
+			xoroshirogenerator.nextBoolean();
+		}
+		var xoroFinish = toSeconds(System.nanoTime() - xoroStart);
+		BENCHMARK_LOGGER.info("Xoroshiro128++ time: {}{}s{}, mean: {}{}s{}", ANSI_COLOURS.BOLD_YELLOW.value, xoroFinish, ANSI_COLOURS.RESET.value, ANSI_COLOURS.BOLD_YELLOW.value, (float) (xoroFinish / ITERATIONS), ANSI_COLOURS.RESET.value);
+		TIMING_VALUES.add(xoroFinish); // 4
+
+		BENCHMARK_LOGGER.info("Overall winner: {}{}s{}, from random generator: {}{}{}", ANSI_COLOURS.BOLD_YELLOW.value, Collections.min(TIMING_VALUES), ANSI_COLOURS.RESET.value,ANSI_COLOURS.BOLD_YELLOW.value,
+				GENERATOR_NAMES[TIMING_VALUES.indexOf(Collections.min(TIMING_VALUES))], ANSI_COLOURS.RESET.value
 		);
 	}
 
