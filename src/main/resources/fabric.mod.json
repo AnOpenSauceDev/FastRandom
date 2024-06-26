@@ -12,6 +12,7 @@
     "unilock"
   ],
   "contact": {
+    "homepage": "https://modrinth.com/mod/faster-random",
     "sources": "https://github.com/AnOpenSauceDev/FastRandom",
     "issues": "https://github.com/AnOpenSauceDev/FastRandom/issues"
   },
