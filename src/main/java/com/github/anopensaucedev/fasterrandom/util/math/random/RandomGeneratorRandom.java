@@ -85,6 +85,7 @@ public class RandomGeneratorRandom implements BaseRandom {
 	private record Splitter(long seed) implements RandomSplitter {
 		@Override
 		public Random split(int x, int y, int z) {
+			// Warning: MathHelper.hashCode(int, int, int) has been deprecated and will be removed in a future.
 			return new RandomGeneratorRandom(MathHelper.hashCode(x, y, z) ^ this.seed);
 		}
 
