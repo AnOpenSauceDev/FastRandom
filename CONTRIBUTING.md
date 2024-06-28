@@ -7,7 +7,7 @@ Nowadays, Faster Random is a pretty solid mod, but it still can be worked on! If
 - Fix any problems you have with Faster Random, and PR the repo with the fix.
 
 ## Making a PR to Faster Random
-When making a pull request, please follow this criteria:
+When making a pull request, please follow these criteria:
 - [x] Justify any dependencies you want to add. (if any)
 - [X] Ensure that your fork works with other world generation mods/performance mods.
 - [X] Document the purpose your code, and have your mixins fit the naming scheme of `fasterrandom$methodName()`.

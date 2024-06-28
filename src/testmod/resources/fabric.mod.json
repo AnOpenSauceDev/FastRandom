@@ -9,7 +9,8 @@
   ],
   "contributors": [
     "Steveplays28",
-    "unilock"
+    "unilock",
+    "four4tReS"
   ],
   "license": "Apache-2.0",
   "environment": "*",
@@ -19,7 +20,7 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.14",
-    "minecraft": ">=1.19"
+    "fabricloader": ">=0.15.11",
+    "minecraft": ">=1.20.6"
   }
 }

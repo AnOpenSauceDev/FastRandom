@@ -3,7 +3,6 @@ package com.github.anopensaucedev.fasterrandomtest.benchmark;
 import net.minecraft.util.math.random.CheckedRandom;
 import net.minecraft.util.math.random.RandomSeed;
 import net.minecraft.util.math.random.Xoroshiro128PlusPlusRandom;
-import net.minecraft.util.math.random.Xoroshiro128PlusPlusRandomImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
