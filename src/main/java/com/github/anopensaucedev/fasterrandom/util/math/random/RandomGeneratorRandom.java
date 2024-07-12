@@ -3,6 +3,7 @@ package com.github.anopensaucedev.fasterrandom.util.math.random;
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.BaseRandom;
+import net.minecraft.util.math.random.CheckedRandom;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.math.random.RandomSplitter;
 
@@ -92,6 +93,14 @@ public class RandomGeneratorRandom implements BaseRandom {
 		public Random split(String seed) {
 			return new RandomGeneratorRandom((long) seed.hashCode() ^ this.seed);
 		}
+
+		/*
+		@Override
+		public Random split(long seed) {
+			return new RandomGeneratorRandom(seed);
+		}
+
+		 */
 
 		@Override
 		@VisibleForTesting
