@@ -3,16 +3,15 @@ package com.github.anopensaucedev.fasterrandom.util.math.random;
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.BaseRandom;
-import net.minecraft.util.math.random.CheckedRandom;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.math.random.RandomSplitter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
 
 public class RandomGeneratorRandom implements BaseRandom {
-	private static final RandomGeneratorFactory<RandomGenerator.SplittableGenerator> RANDOM_GENERATOR_FACTORY = RandomGeneratorFactory.of("L64X128MixRandom");
-
+	private static final @NotNull RandomGeneratorFactory<RandomGenerator.SplittableGenerator> RANDOM_GENERATOR_FACTORY = RandomGeneratorFactoryUtil.getRandomGeneratorFactory();
 	private static final int INT_BITS = 48;
 	private static final long SEED_MASK = 0xFFFFFFFFFFFFL;
 	private static final long MULTIPLIER = 25214903917L;
@@ -84,27 +83,20 @@ public class RandomGeneratorRandom implements BaseRandom {
 	}
 
 	private record Splitter(long seed) implements RandomSplitter {
+		@SuppressWarnings("deprecation")
 		@Override
-		public Random split(int x, int y, int z) {
+		public @NotNull Random split(int x, int y, int z) {
 			return new RandomGeneratorRandom(MathHelper.hashCode(x, y, z) ^ this.seed);
 		}
 
 		@Override
-		public Random split(String seed) {
+		public @NotNull Random split(@NotNull String seed) {
 			return new RandomGeneratorRandom((long) seed.hashCode() ^ this.seed);
 		}
 
-		/*
-		@Override
-		public Random split(long seed) {
-			return new RandomGeneratorRandom(seed);
-		}
-
-		 */
-
 		@Override
 		@VisibleForTesting
-		public void addDebugInfo(StringBuilder info) {
+		public void addDebugInfo(@NotNull StringBuilder info) {
 			info.append("RandomGeneratorRandom$Splitter{").append(this.seed).append("}");
 		}
 	}

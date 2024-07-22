@@ -1,5 +1,6 @@
 package com.github.anopensaucedev.fasterrandom.util.jvm;
 
+import com.github.anopensaucedev.fasterrandom.util.math.random.RandomGeneratorFactoryUtil;
 import org.jetbrains.annotations.Nullable;
 
 public class JvmUtil {
@@ -13,9 +14,9 @@ public class JvmUtil {
 	public static boolean isRandomGeneratorFactorySupported() {
 		if (isRandomGeneratorFactorySupported == null) {
 			try {
-				Class.forName("java.util.random.RandomGeneratorFactory");
+				RandomGeneratorFactoryUtil.getRandomGeneratorFactory().create();
 				isRandomGeneratorFactorySupported = true;
-			} catch (ClassNotFoundException ignored) {
+			} catch (IllegalArgumentException ignored) {
 				isRandomGeneratorFactorySupported = false;
 			}
 		}

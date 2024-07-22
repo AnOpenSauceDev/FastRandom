@@ -20,24 +20,36 @@ public class FasterRandomMixinPlugin implements IMixinConfigPlugin {
 	private static final @NotNull Supplier<Boolean> TRUE = () -> true;
 	private static final @NotNull Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of();
 
+	private static boolean hasLoggedLoadingMessage = false;
+
 	@Override
-	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+	public boolean shouldApplyMixin(@NotNull String targetClassName, @NotNull String mixinClassName) {
 		if (!JvmUtil.isRandomGeneratorFactorySupported()) {
-			@NotNull String errorMessage = String.format(
+			if (hasLoggedLoadingMessage) {
+				return false;
+			}
+
+			@NotNull String warningMessage = String.format(
 					"""
-					Faster Random was unable to load!
-					ERROR: Your Java Virtual Machine (JVM) does not implement RandomGeneratorFactory and/or L64X128MixRandom, which Faster Random requires to run.
-					Please use a supported JVM such as Azul Zulu (https://www.azul.com/downloads/#zulu) or GraalVM (https://www.graalvm.org/downloads/).
-					Your JVM, %s version %s, is not suitable for Faster Random. Faster Random will disable itself.
-					""",
+							Faster Random was unable to load!
+							WARNING: Your Java Virtual Machine (JVM) does not implement RandomGeneratorFactory and/or L64X128MixRandom, which Faster Random requires to run.
+							Please use a supported JVM such as Azul Zulu (https://www.azul.com/downloads/#zulu) or GraalVM (https://www.graalvm.org/downloads/).
+							Your JVM, %s version %s, is not suitable for Faster Random. Faster Random will disable itself.
+							""",
 					System.getProperty("java.vm.name"),
 					System.getProperty("java.vm.version")
 			);
-			FasterRandom.LOGGER.warn(errorMessage);
+			FasterRandom.LOGGER.warn(warningMessage);
+			hasLoggedLoadingMessage = true;
 			return false;
 		}
 
+		if (hasLoggedLoadingMessage) {
+			return CONDITIONS.getOrDefault(mixinClassName, TRUE).get();
+		}
+
 		FasterRandom.LOGGER.info("Loading {}.", MOD_NAME);
+		hasLoggedLoadingMessage = true;
 		return CONDITIONS.getOrDefault(mixinClassName, TRUE).get();
 	}
 
