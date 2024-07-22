@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 
+import static com.github.anopensaucedev.fasterrandom.FasterRandom.MOD_NAME;
+
 public class FasterRandomMixinPlugin implements IMixinConfigPlugin {
 	private static final @NotNull Supplier<Boolean> TRUE = () -> true;
 	private static final @NotNull Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of();
@@ -35,6 +37,7 @@ public class FasterRandomMixinPlugin implements IMixinConfigPlugin {
 			return false;
 		}
 
+		FasterRandom.LOGGER.info("Loading {}.", MOD_NAME);
 		return CONDITIONS.getOrDefault(mixinClassName, TRUE).get();
 	}
 
