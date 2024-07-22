@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "com.github.anopensaucedev.fasterrandom.mixin",
   "compatibilityLevel": "JAVA_17",
+  "plugin": "com.github.anopensaucedev.fasterrandom.mixin.FasterRandomMixinPlugin",
   "mixins": [
     "ChunkRandomMixin",
     "RandomMixin"
